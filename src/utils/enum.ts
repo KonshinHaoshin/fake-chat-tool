@@ -1,4 +1,15 @@
-export const models = [
+interface SelectOption {
+  label: string;
+  value: string | number | boolean;
+}
+
+interface ModelOption extends SelectOption {
+  value: string;
+  width: number;
+  height: number;
+}
+
+export const models: ModelOption[] = [
   {
     label: "安卓",
     value: "android",
@@ -12,63 +23,8 @@ export const models = [
     height: 2436,
   },
 ];
-// iPhoneX
-// 分辨率: 1125x2436
 
-// iPhoneXR
-// 分辨率: 828x1792
-
-// iPhoneXs Max
-// 分辨率: 1242x2688
-
-// iPhone11
-// 分辨率: 828x1792
-
-// iPhone11 Pro
-// 分辨率: 1125x2436
-
-// iPhone12
-// 分辨率: 1170x2532
-
-// iPhone12 Mini
-// 分辨率: 1080x2340
-
-// iPhone11 Pro Max
-// 分辨率: 1242x2688
-
-// iPhone13 Mini
-// 分辨率: 1080x2340
-
-// iPhone13
-// 分辨率: 1170x2532
-
-// iPhone13 Pro Max
-// 分辨率: 1242x2688
-
-// iPhone14 Pro
-// 分辨率: 1179x2556
-
-// iPhone14 Pro Max
-// 分辨率: 1290x2796
-
-// ---
-
-// Mate40
-// 分辨率: 1080x2376
-
-// Mate40pro
-// 分辨率: 1200x2640
-
-// Nova8
-// 分辨率: 1080x2340
-
-// Mi10
-// 分辨率: 1080x2340
-
-// Mi11
-// 分辨率: 1440x3200
-
-export const networkTypes = [
+export const networkTypes: SelectOption[] = [
   {
     label: "Wifi",
     value: "wifi",
@@ -87,7 +43,7 @@ export const networkTypes = [
   },
 ];
 
-export const wifiSignals = [
+export const wifiSignals: SelectOption[] = [
   {
     label: "1格",
     value: "1",
@@ -102,7 +58,7 @@ export const wifiSignals = [
   },
 ];
 
-export const phoneSignals = [
+export const phoneSignals: SelectOption[] = [
   {
     label: "1格",
     value: "1",
@@ -121,7 +77,7 @@ export const phoneSignals = [
   },
 ];
 
-export const addTypes = [
+export const addTypes: SelectOption[] = [
   {
     label: "文本",
     value: "text",
@@ -166,9 +122,9 @@ export const addTypes = [
     label: "系统消息",
     value: "system",
   },
-]
+];
 
-export const weeks = [
+export const weeks: SelectOption[] = [
   {
     label: "周一",
     value: "周一",
@@ -203,7 +159,7 @@ export const weeks = [
   },
 ];
 
-export const morningAfternoon = [
+export const morningAfternoon: SelectOption[] = [
   {
     label: "上午",
     value: "上午",
@@ -212,9 +168,9 @@ export const morningAfternoon = [
     label: "下午",
     value: "下午",
   },
-]
+];
 
-export const emojiList = [
+export const emojiList: string[] = [
   "微笑",
   "撇嘴",
   "色",
@@ -323,9 +279,9 @@ export const emojiList = [
   "跳跳",
   "发抖",
   "转圈",
-]
+];
 
-export const avInviteTypes = [
+export const avInviteTypes: SelectOption[] = [
   {
     label: "音频邀请",
     value: "audio",
@@ -334,9 +290,9 @@ export const avInviteTypes = [
     label: "视频邀请",
     value: "video",
   },
-]
+];
 
-export const avInviteStates = [
+export const avInviteStates: SelectOption[] = [
   {
     label: "通话完成",
     value: "success",
@@ -353,9 +309,9 @@ export const avInviteStates = [
     label: "已拒绝",
     value: "reject",
   },
-]
+];
 
-export const patRoles = [
+export const patRoles: SelectOption[] = [
   {
     label: "对方",
     value: "other",
@@ -364,9 +320,9 @@ export const patRoles = [
     label: "自己",
     value: "own",
   },
-]
+];
 
-export const ynEnums = [
+export const ynEnums: SelectOption[] = [
   {
     label: "是",
     value: true,
@@ -375,4 +331,4 @@ export const ynEnums = [
     label: "否",
     value: false,
   },
-]
+]; 

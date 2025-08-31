@@ -9,4 +9,4 @@ pinia.use(createPersistedState({
   storage: indexedDBStorage,
 }));
 
-export default pinia;
+export default pinia; 

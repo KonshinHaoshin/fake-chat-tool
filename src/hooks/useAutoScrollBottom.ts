@@ -1,13 +1,13 @@
-import { onMounted, watch, nextTick } from "vue";
+import { onMounted, watch, nextTick, Ref } from "vue";
 import eventBus from '@/utils/eventBus';
 import useStore from "@/store";
 const { useChatStore } = useStore();
 
 /**
  * 执行本方法可以让盒子自动滚动至底
- * @param {ref} component ref绑定的dom
+ * @param {Ref<HTMLElement>} component ref绑定的dom
  */
-export default function useAutoScrollBottom(component) {
+export default function useAutoScrollBottom(component: Ref<HTMLElement | null>) {
   // watch(() => useChatStore.chatList, () => {
   //   toBottom();
   // }, {
@@ -22,14 +22,16 @@ export default function useAutoScrollBottom(component) {
     })
   });
 
-  const toBottom = () => {
+  const toBottom = (): void => {
     if (!component || !component.value) return;
     nextTick(() => {
-      component.value.scrollTop = component.value.scrollHeight;
+      if (component.value) {
+        component.value.scrollTop = component.value.scrollHeight;
+      }
     })
   };
 
   return {
     toBottom,
   }
-}
+} 

@@ -1,11 +1,15 @@
-import { ref } from 'vue';
+import { ref, Ref } from 'vue';
 import html2canvas from 'html2canvas';
 import GIF from 'gif.js';
 
-export function useHtmlToImage() {
-  const imageUrl = ref('');
+interface Html2CanvasParams {
+  [key: string]: any;
+}
 
-  const captureHtmlToImage = async (element, params = {}) => {
+export function useHtmlToImage() {
+  const imageUrl: Ref<string> = ref('');
+
+  const captureHtmlToImage = async (element: HTMLElement, params: Html2CanvasParams = {}): Promise<void> => {
     const canvas = await html2canvas(element, {...params});
     imageUrl.value = canvas.toDataURL();
   };
@@ -17,16 +21,16 @@ export function useHtmlToImage() {
 }
 
 export function useHtmlToGif() {
-  const gifUrl = ref('');
+  const gifUrl: Ref<string> = ref('');
 
-  const captureHtmlToGif = async (element) => {
+  const captureHtmlToGif = async (element: HTMLElement): Promise<void> => {
     const canvas = await html2canvas(element);
     // 创建一个 GIF 实例
     const gif = new GIF();
     // 将 Canvas 添加到 GIF 帧中
-    gif.addFrame(canvas, { delay: 2000, copy: false, });
+    gif.addFrame(canvas, { delay: 2000, copy: false });
     // 完成 GIF 编码
-    gif.on('finished', (blob) => {
+    gif.on('finished', (blob: Blob) => {
       // 创建 GIF 对象的 URL
       const url = URL.createObjectURL(blob);
       // 更新组件数据以显示 GIF
@@ -41,4 +45,4 @@ export function useHtmlToGif() {
     gifUrl,
     captureHtmlToGif,
   };
-}
+} 
