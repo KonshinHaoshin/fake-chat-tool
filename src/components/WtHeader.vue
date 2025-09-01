@@ -1,7 +1,6 @@
 <template>
   <div class="wt-header">
     <p data-text="微信对话生成器">微信对话生成器</p>
-    <img src="https://visitor-badge.laobi.icu/badge?page_id=vue3-wechat-tool.visitor-badge&right_color=%23fd6585" alt="">
   </div>
 </template>
 

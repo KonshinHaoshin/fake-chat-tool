@@ -32,9 +32,7 @@
     </a-layout>
   </a-config-provider>
 
-  <a-modal v-model:open="modalOpen" title="注意" :maskClosable="false" @ok="handleModalOk" @cancel="handleModalCancel" cancelText="关闭" okText="我已知晓，关闭">
-    <Instructions />
-  </a-modal>
+
   <ContextMenu />
 </template>
 
@@ -48,7 +46,7 @@ import WtHeader from "@/components/WtHeader.vue"
 import WtSider from "@/components/WtSider.vue"
 // import WtContent from "@/components/WtContent.vue"
 const WtContent = defineAsyncComponent(() => import('@/components/WtContent.vue'));
-import Instructions from "@/components/common/Instructions.vue"
+
 import ContextMenu from "@/components/common/ContextMenu.vue"
 import IsPhone from "@/components/common/IsPhone.vue"
 import useStore from "@/store";
@@ -67,20 +65,7 @@ const siderStyle = {
   backgroundColor: '#F9F9F9',
 };
 
-const modalOpen = ref(false);
-const showDisclaimerModal = () => {
-  modalOpen.value = true;
-};
-const handleModalOk = e => {
-  useSystemStore.hadDisclaimer = true;
-  modalOpen.value = false;
-};
-const handleModalCancel = e => {
-  modalOpen.value = false;
-};
-setTimeout(() => {
-  !useSystemStore.hadDisclaimer && showDisclaimerModal();
-}, 1500)
+
 
 const showFork = ref(false);
 onMounted(() => {

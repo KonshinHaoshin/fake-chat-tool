@@ -149,14 +149,7 @@ const beforeUpload = (file) => {
     });
     return false
   }
-  const isLtM = file.size / 1024 / 1024 < props.limitSize;
-  if (!isLtM) {
-    toast({
-      type: "warning",
-      content: `图片大小需小于${props.limitSize}MB！`,
-    });
-    return false
-  }
+  return true;
 };
 
 const cropperRef = ref(null);
